@@ -21,8 +21,8 @@ def monthly_trends(df):
     if df.empty:
         return None
     
-    df["date"] = pd.to_datetime(df["date"])
-    df["month"] = df["date"].dt.to_period("M").astype(str)
+    df = df.copy()
+    df["month"] = df["date"].str[:7]
     
     monthly = df.groupby(["month", "type"])["amount"].sum().reset_index()
     

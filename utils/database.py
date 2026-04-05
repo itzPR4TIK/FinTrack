@@ -36,7 +36,7 @@ def get_transactions():
 def delete_transaction(transaction_id):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM transactons WHERE id = ?",(transaction_id,))
+    cursor.execute("DELETE FROM transactions WHERE id = ?", (transaction_id,))
     conn.commit()
     conn.close()
 def get_summary():
